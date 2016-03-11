@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:rowCount="12"
+    android:columnCount="12"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:showIn="@layout/activity_begin">
+
+    <!--
+    This is the prototype for a starting page. From here a user can access additional teams
+    -->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TeamNumber"
+        android:layout_gravity="center_horizontal" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/teamNumberControl"
+        android:inputType="number"
+        android:layout_row="1"
+        android:layout_column="0"
+        android:layout_gravity="center_horizontal"/>
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_row="3"
+        android:layout_column="0"
+        android:text="Obstacle"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_row="3"
+        android:layout_column="0"
+        android:layout_gravity="center_horizontal"
+        android:text="Auton"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_row="3"
+        android:layout_column="0"
+        android:layout_gravity="right"
+        android:text="Teleop"
+        />
+
+
+    <!-- Low Bar -->
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id = "@+id/lowBar"
+        android:layout_row="4"
+        android:layout_column="0"
+        android:text="LowBar" />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lowBarAuton"
+        android:inputType="number"
+        android:layout_row="4"
+        android:layout_column="0"
+        android:layout_gravity="center_horizontal"/>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lowBarTeleop"
+        android:inputType="number"
+        android:layout_row="4"
+        android:layout_column="0"
+        android:layout_gravity="right"/>
+
+
+    <!-- Porticullis -->
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id = "@+id/port"
+        android:layout_row="5"
+        android:layout_column="0"
+        android:text="Porticullis" />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/portAuton"
+        android:inputType="number"
+        android:layout_row="5"
+        android:layout_column="0"
+        android:layout_gravity="center_horizontal"/>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/portTeleop"
+        android:inputType="number"
+        android:layout_row="5"
+        android:layout_column="6"
+        android:layout_gravity="right"/>
+
+
+    <!-- Cheval de Fris -->
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id = "@+id/cheval"
+        android:layout_row="6"
+        android:layout_column="0"
+        android:text="Cheval de Fris" />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/chevalAuton"
+        android:inputType="number"
+        android:layout_row="6"
+        android:layout_column="0"
+        android:layout_gravity="center_horizontal"/>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/chevalTeleop"
+        android:inputType="number"
+        android:layout_row="6"
+        android:layout_column="0"
+        android:layout_gravity="right"/>
+
+
+    <!-- Sally Port -->
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id = "@+id/sallyPort"
+        android:layout_row="7"
+        android:layout_column="0"
+        android:text="Sally Port" />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/sallyAuton"
+        android:inputType="number"
+        android:layout_row="7"
+        android:layout_column="0"
+        android:layout_gravity="center_horizontal"/>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/sallyTeleop"
+        android:inputType="number"
+        android:layout_row="7"
+        android:layout_column="0"
+        android:layout_gravity="right"/>
+
+
+    <!-- Sally Port -->
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id = "@+id/drawbridge"
+        android:layout_row="8"
+        android:layout_column="0"
+        android:text="Drawbridge" />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/drawbridgeAuton"
+        android:inputType="number"
+        android:layout_row="8"
+        android:layout_column="0"
+        android:layout_gravity="center_horizontal"/>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/drawbridgeTeleop"
+        android:inputType="number"
+        android:layout_row="8"
+        android:layout_column="0"
+        android:layout_gravity="right"/>
+
+
+    <!-- Moat -->
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id = "@+id/moat"
+        android:layout_row="8"
+        android:layout_column="0"
+        android:text="Drawbridge" />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/moatAuton"
+        android:inputType="number"
+        android:layout_row="8"
+        android:layout_column="0"
+        android:layout_gravity="center_horizontal"/>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/moatTeleop"
+        android:inputType="number"
+        android:layout_row="8"
+        android:layout_column="0"
+        android:layout_gravity="right"/>
+</>
