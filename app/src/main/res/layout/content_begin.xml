@@ -2,8 +2,8 @@
 <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:rowCount="12"
-    android:columnCount="12"
+    android:rowCount="20"
+    android:columnCount="20"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
@@ -50,7 +50,7 @@
         android:layout_height="wrap_content"
         android:layout_row="3"
         android:layout_column="0"
-        android:layout_gravity="right"
+        android:layout_gravity="end"
         android:text="Teleop"
         />
 
@@ -70,7 +70,8 @@
         android:inputType="number"
         android:layout_row="4"
         android:layout_column="0"
-        android:layout_gravity="center_horizontal"/>
+        android:layout_gravity="center_horizontal"
+        android:text="0"/>
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -78,7 +79,8 @@
         android:inputType="number"
         android:layout_row="4"
         android:layout_column="0"
-        android:layout_gravity="right"/>
+        android:layout_gravity="end"
+        android:text="0"/>
 
 
     <!-- Porticullis -->
@@ -96,15 +98,17 @@
         android:inputType="number"
         android:layout_row="5"
         android:layout_column="0"
-        android:layout_gravity="center_horizontal"/>
+        android:layout_gravity="center_horizontal"
+        android:text="0"/>
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/portTeleop"
         android:inputType="number"
         android:layout_row="5"
-        android:layout_column="6"
-        android:layout_gravity="right"/>
+        android:layout_column="0"
+        android:layout_gravity="end"
+        android:text="0"/>
 
 
     <!-- Cheval de Fris -->
@@ -122,7 +126,8 @@
         android:inputType="number"
         android:layout_row="6"
         android:layout_column="0"
-        android:layout_gravity="center_horizontal"/>
+        android:layout_gravity="center_horizontal"
+        android:text="0"/>
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -130,7 +135,8 @@
         android:inputType="number"
         android:layout_row="6"
         android:layout_column="0"
-        android:layout_gravity="right"/>
+        android:layout_gravity="end"
+        android:text="0"/>
 
 
     <!-- Sally Port -->
@@ -148,7 +154,8 @@
         android:inputType="number"
         android:layout_row="7"
         android:layout_column="0"
-        android:layout_gravity="center_horizontal"/>
+        android:layout_gravity="center_horizontal"
+        android:text="0"/>
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -156,10 +163,11 @@
         android:inputType="number"
         android:layout_row="7"
         android:layout_column="0"
-        android:layout_gravity="right"/>
+        android:layout_gravity="end"
+        android:text="0"/>
 
 
-    <!-- Sally Port -->
+    <!-- Drawbridge -->
     <RadioButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -174,7 +182,8 @@
         android:inputType="number"
         android:layout_row="8"
         android:layout_column="0"
-        android:layout_gravity="center_horizontal"/>
+        android:layout_gravity="center_horizontal"
+        android:text="0"/>
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -182,7 +191,8 @@
         android:inputType="number"
         android:layout_row="8"
         android:layout_column="0"
-        android:layout_gravity="right"/>
+        android:layout_gravity="end"
+        android:text="0"/>
 
 
     <!-- Moat -->
@@ -190,23 +200,106 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id = "@+id/moat"
-        android:layout_row="8"
+        android:layout_row="9"
         android:layout_column="0"
-        android:text="Drawbridge" />
+        android:text="Moat" />
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/moatAuton"
         android:inputType="number"
-        android:layout_row="8"
+        android:layout_row="9"
         android:layout_column="0"
-        android:layout_gravity="center_horizontal"/>
+        android:layout_gravity="center_horizontal"
+        android:text="0"/>
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/moatTeleop"
         android:inputType="number"
-        android:layout_row="8"
+        android:layout_row="9"
         android:layout_column="0"
-        android:layout_gravity="right"/>
+        android:layout_gravity="end"
+        android:text="0"/>
+
+
+    <!-- Rock Wall -->
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id = "@+id/ramparts"
+        android:layout_row="10"
+        android:layout_column="0"
+        android:text="Ramparts" />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/rampartsAuton"
+        android:inputType="number"
+        android:layout_row="10"
+        android:layout_column="0"
+        android:layout_gravity="center_horizontal"
+        android:text="0"/>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/rampartsTeleop"
+        android:inputType="number"
+        android:layout_row="10"
+        android:layout_column="0"
+        android:layout_gravity="end"
+        android:text="0"/>
+
+
+    <!-- Rock Wall -->
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id = "@+id/rockWall"
+        android:layout_row="11"
+        android:layout_column="0"
+        android:text="Rock Wall" />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/rockWallAuton"
+        android:inputType="number"
+        android:layout_row="11"
+        android:layout_column="0"
+        android:layout_gravity="center_horizontal"
+        android:text="0"/>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/rockWallTeleop"
+        android:inputType="number"
+        android:layout_row="11"
+        android:layout_column="0"
+        android:layout_gravity="end"
+        android:text="0"/>
+
+
+    <!-- Goals -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_row="12"
+        android:layout_column="0"
+        android:text="Auton High Scores" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_row="12"
+        android:layout_column="0"
+        android:text="Auton Low Scores"
+        android:layout_gravity="center_horizontal"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_row="12"
+        android:layout_column="0"
+        android:text="Auton Misses"
+        android:layout_gravity="end"/>
 </>
