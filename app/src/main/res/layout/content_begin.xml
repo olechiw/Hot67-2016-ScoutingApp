@@ -7,7 +7,7 @@
     <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
-        android:rowCount="24"
+        android:rowCount="50"
         android:columnCount="20"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,14 +15,12 @@
         tools:showIn="@layout/activity_begin"
         tools:ignore="HardcodedText">
 
-        <!--
-        This is the prototype for a starting page. From here a user can access additional teams
-        -->
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="TeamNumber"
+            android:layout_row="0"
+            android:layout_column="0"
             android:layout_gravity="center_horizontal" />
 
         <EditText
@@ -35,18 +33,42 @@
             android:layout_gravity="center_horizontal"/>
 
 
+        <!-- Auton Crossing and such -->
+        <org.hotteam67.scouter.ToggleBox
+            android:layout_row="3"
+            android:layout_column="0"
+            android:text="Reached"
+            android:id="@+id/autonReached"
+            />
+        <org.hotteam67.scouter.ToggleBox
+            android:layout_row="3"
+            android:layout_column="0"
+            android:text="Crossed"
+            android:id="@+id/autonCrossed"
+            android:layout_gravity="center_horizontal"/>
 
+        <org.hotteam67.scouter.ToggleBox
+            android:layout_row="3"
+            android:layout_column="0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Spy"
+            android:id="@+id/spy"
+            android:layout_gravity="end"/>
+
+
+        <!-- Obstacles -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_row="3"
+            android:layout_row="6"
             android:layout_column="0"
             android:text="Obstacle"
             />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_row="3"
+            android:layout_row="6"
             android:layout_column="0"
             android:layout_gravity="center_horizontal"
             android:text="Auton"
@@ -54,7 +76,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_row="3"
+            android:layout_row="6"
             android:layout_column="0"
             android:layout_gravity="end"
             android:text="Teleop"
@@ -65,7 +87,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_row="4"
+            android:layout_row="7"
             android:layout_column="0"
             android:text="LowBar" />
         <EditText
@@ -73,7 +95,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/lowBarAuton"
             android:inputType="number"
-            android:layout_row="4"
+            android:layout_row="7"
             android:layout_column="0"
             android:layout_gravity="center_horizontal"
             android:text="0"/>
@@ -82,7 +104,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/lowBarTeleop"
             android:inputType="number"
-            android:layout_row="4"
+            android:layout_row="7"
             android:layout_column="0"
             android:layout_gravity="end"
             android:text="0"/>
@@ -93,7 +115,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id = "@+id/porticullis"
-            android:layout_row="5"
+            android:layout_row="8"
             android:layout_column="0"
             android:text="Porticullis" />
         <EditText
@@ -101,7 +123,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/portAuton"
             android:inputType="number"
-            android:layout_row="5"
+            android:layout_row="8"
             android:layout_column="0"
             android:layout_gravity="center_horizontal"
             android:text="0"/>
@@ -110,7 +132,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/portTeleop"
             android:inputType="number"
-            android:layout_row="5"
+            android:layout_row="8"
             android:layout_column="0"
             android:layout_gravity="end"
             android:text="0"/>
@@ -121,7 +143,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id = "@+id/cheval"
-            android:layout_row="6"
+            android:layout_row="9"
             android:layout_column="0"
             android:text="Cheval de Fris" />
         <EditText
@@ -129,7 +151,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/chevalAuton"
             android:inputType="number"
-            android:layout_row="6"
+            android:layout_row="9"
             android:layout_column="0"
             android:layout_gravity="center_horizontal"
             android:text="0"/>
@@ -138,7 +160,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/chevalTeleop"
             android:inputType="number"
-            android:layout_row="6"
+            android:layout_row="9"
             android:layout_column="0"
             android:layout_gravity="end"
             android:text="0"/>
@@ -149,7 +171,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id = "@+id/sallyPort"
-            android:layout_row="7"
+            android:layout_row="10"
             android:layout_column="0"
             android:text="Sally Port" />
         <EditText
@@ -157,7 +179,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/sallyAuton"
             android:inputType="number"
-            android:layout_row="7"
+            android:layout_row="10"
             android:layout_column="0"
             android:layout_gravity="center_horizontal"
             android:text="0"/>
@@ -166,7 +188,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/sallyTeleop"
             android:inputType="number"
-            android:layout_row="7"
+            android:layout_row="10"
             android:layout_column="0"
             android:layout_gravity="end"
             android:text="0"/>
@@ -177,7 +199,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id = "@+id/drawbridge"
-            android:layout_row="8"
+            android:layout_row="11"
             android:layout_column="0"
             android:text="Drawbridge" />
         <EditText
@@ -185,7 +207,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/drawbridgeAuton"
             android:inputType="number"
-            android:layout_row="8"
+            android:layout_row="11"
             android:layout_column="0"
             android:layout_gravity="center_horizontal"
             android:text="0"/>
@@ -194,7 +216,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/drawbridgeTeleop"
             android:inputType="number"
-            android:layout_row="8"
+            android:layout_row="11"
             android:layout_column="0"
             android:layout_gravity="end"
             android:text="0"/>
@@ -205,7 +227,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id = "@+id/moat"
-            android:layout_row="9"
+            android:layout_row="12"
             android:layout_column="0"
             android:text="Moat" />
         <EditText
@@ -213,7 +235,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/moatAuton"
             android:inputType="number"
-            android:layout_row="9"
+            android:layout_row="12"
             android:layout_column="0"
             android:layout_gravity="center_horizontal"
             android:text="0"/>
@@ -222,7 +244,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/moatTeleop"
             android:inputType="number"
-            android:layout_row="9"
+            android:layout_row="12"
             android:layout_column="0"
             android:layout_gravity="end"
             android:text="0"/>
@@ -233,7 +255,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id = "@+id/ramparts"
-            android:layout_row="10"
+            android:layout_row="13"
             android:layout_column="0"
             android:text="Ramparts" />
         <EditText
@@ -241,7 +263,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/rampartsAuton"
             android:inputType="number"
-            android:layout_row="10"
+            android:layout_row="13"
             android:layout_column="0"
             android:layout_gravity="center_horizontal"
             android:text="0"/>
@@ -250,7 +272,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/rampartsTeleop"
             android:inputType="number"
-            android:layout_row="10"
+            android:layout_row="13"
             android:layout_column="0"
             android:layout_gravity="end"
             android:text="0"/>
@@ -261,7 +283,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id = "@+id/rockWall"
-            android:layout_row="11"
+            android:layout_row="14"
             android:layout_column="0"
             android:text="Rock Wall" />
         <EditText
@@ -269,7 +291,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/rockWallAuton"
             android:inputType="number"
-            android:layout_row="11"
+            android:layout_row="14"
             android:layout_column="0"
             android:layout_gravity="center_horizontal"
             android:text="0"/>
@@ -278,7 +300,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/rockWallTeleop"
             android:inputType="number"
-            android:layout_row="11"
+            android:layout_row="14"
             android:layout_column="0"
             android:layout_gravity="end"
             android:text="0"/>
@@ -288,7 +310,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id = "@+id/roughTerrain"
-            android:layout_row="12"
+            android:layout_row="15"
             android:layout_column="0"
             android:text="Rough Terrain" />
         <EditText
@@ -296,7 +318,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/roughTerrainAuton"
             android:inputType="number"
-            android:layout_row="12"
+            android:layout_row="15"
             android:layout_column="0"
             android:layout_gravity="center_horizontal"
             android:text="0"/>
@@ -305,7 +327,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/roughTerrainTeleop"
             android:inputType="number"
-            android:layout_row="12"
+            android:layout_row="15"
             android:layout_column="0"
             android:layout_gravity="end"
             android:text="0"/>
@@ -314,7 +336,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_row="13"
+            android:layout_row="16"
             android:layout_column="0"
             android:text="Goals:"
             android:layout_gravity="center_horizontal"/>
@@ -323,26 +345,26 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_row="14"
+            android:layout_row="17"
             android:layout_column="0"
             android:text="Auton High Scores" />
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_row="15"
+            android:layout_row="18"
             android:layout_column="0"
             android:inputType="number"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_row="14"
+            android:layout_row="16"
             android:layout_column="0"
             android:text="Auton Low Scores"
             android:layout_gravity="end"/>
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_row="15"
+            android:layout_row="18"
             android:layout_column="0"
             android:inputType="number"
             android:layout_gravity="end"/>
@@ -352,27 +374,27 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_row="16"
+            android:layout_row="19"
             android:layout_column="0"
             android:text="Teleop High Scores" />
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_row="17"
+            android:layout_row="20"
             android:layout_column="0"
             android:id="@+id/telopHigh"
             android:inputType="number"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_row="16"
+            android:layout_row="19"
             android:layout_column="0"
             android:text="Teleop Low Scores"
             android:layout_gravity="end"/>
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_row="17"
+            android:layout_row="20"
             android:layout_column="0"
             android:id="@+id/telopLow"
             android:inputType="number"
@@ -383,14 +405,14 @@
         <org.hotteam67.scouter.ToggleBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_row="14"
+            android:layout_row="20"
             android:layout_column="0"
             android:layout_gravity="center_horizontal"
             android:text="Batter"/>
         <org.hotteam67.scouter.ToggleBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_row="15"
+            android:layout_row="19"
             android:layout_column="0"
             android:layout_gravity="center_horizontal"
             android:text="Outer Works"/>
@@ -400,18 +422,21 @@
         <org.hotteam67.scouter.ToggleBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_row="18"
+            android:layout_row="21"
             android:layout_column="0"
             android:text="Challenged"
             android:id="@+id/challenged"/>
+
         <org.hotteam67.scouter.ToggleBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_row="18"
+            android:layout_row="21"
             android:layout_column="0"
             android:text="Scaled"
             android:id="@+id/scaled"
             android:layout_gravity="center_horizontal"/>
+
+        <!-- Misses -->
 
 
 
@@ -419,13 +444,13 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_row="19"
+            android:layout_row="22"
             android:layout_column="0"
             android:text="Extra Notes:"/>
         <EditText
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_row="20"
+            android:layout_row="23"
             android:layout_column="0"
             android:inputType="textMultiLine"
             android:lines="8"
@@ -434,7 +459,7 @@
         <Button
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_row="21"
+            android:layout_row="24"
             android:layout_column="0"
             android:text="Save"
             android:id="@+id/save"
