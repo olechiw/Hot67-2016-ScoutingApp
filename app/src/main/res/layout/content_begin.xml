@@ -7,7 +7,7 @@
     <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
-        android:rowCount="20"
+        android:rowCount="24"
         android:columnCount="20"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -62,10 +62,9 @@
 
 
         <!-- Low Bar -->
-        <org.hotteam67.scouter.ToggleBox
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id = "@+id/lowBar"
             android:layout_row="4"
             android:layout_column="0"
             android:text="LowBar" />
@@ -93,7 +92,7 @@
         <org.hotteam67.scouter.ToggleBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id = "@+id/port"
+            android:id = "@+id/porticullis"
             android:layout_row="5"
             android:layout_column="0"
             android:text="Porticullis" />
@@ -229,7 +228,7 @@
             android:text="0"/>
 
 
-        <!-- Rock Wall -->
+        <!-- Ramparts -->
         <org.hotteam67.scouter.ToggleBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -284,11 +283,38 @@
             android:layout_gravity="end"
             android:text="0"/>
 
+        <!-- Rough Terrain -->
+        <org.hotteam67.scouter.ToggleBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id = "@+id/roughTerrain"
+            android:layout_row="12"
+            android:layout_column="0"
+            android:text="Rough Terrain" />
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/roughTerrainAuton"
+            android:inputType="number"
+            android:layout_row="12"
+            android:layout_column="0"
+            android:layout_gravity="center_horizontal"
+            android:text="0"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/roughTerrainTeleop"
+            android:inputType="number"
+            android:layout_row="12"
+            android:layout_column="0"
+            android:layout_gravity="end"
+            android:text="0"/>
+
         <!-- Goals -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_row="12"
+            android:layout_row="13"
             android:layout_column="0"
             android:text="Goals:"
             android:layout_gravity="center_horizontal"/>
@@ -297,26 +323,26 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_row="13"
+            android:layout_row="14"
             android:layout_column="0"
             android:text="Auton High Scores" />
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_row="14"
+            android:layout_row="15"
             android:layout_column="0"
             android:inputType="number"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_row="13"
+            android:layout_row="14"
             android:layout_column="0"
             android:text="Auton Low Scores"
             android:layout_gravity="end"/>
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_row="14"
+            android:layout_row="15"
             android:layout_column="0"
             android:inputType="number"
             android:layout_gravity="end"/>
@@ -326,27 +352,27 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_row="15"
+            android:layout_row="16"
             android:layout_column="0"
             android:text="Teleop High Scores" />
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_row="16"
+            android:layout_row="17"
             android:layout_column="0"
             android:id="@+id/telopHigh"
             android:inputType="number"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_row="15"
+            android:layout_row="16"
             android:layout_column="0"
             android:text="Teleop Low Scores"
             android:layout_gravity="end"/>
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_row="16"
+            android:layout_row="17"
             android:layout_column="0"
             android:id="@+id/telopLow"
             android:inputType="number"
@@ -357,31 +383,61 @@
         <org.hotteam67.scouter.ToggleBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_row="13"
+            android:layout_row="14"
             android:layout_column="0"
             android:layout_gravity="center_horizontal"
             android:text="Batter"/>
         <org.hotteam67.scouter.ToggleBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_row="14"
+            android:layout_row="15"
             android:layout_column="0"
             android:layout_gravity="center_horizontal"
             android:text="Outer Works"/>
+
+
+        <!-- Challenged and Scaled -->
+        <org.hotteam67.scouter.ToggleBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="18"
+            android:layout_column="0"
+            android:text="Challenged"
+            android:id="@+id/challenged"/>
+        <org.hotteam67.scouter.ToggleBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="18"
+            android:layout_column="0"
+            android:text="Scaled"
+            android:id="@+id/scaled"
+            android:layout_gravity="center_horizontal"/>
+
+
 
         <!-- Final Notes -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_row="17"
+            android:layout_row="19"
             android:layout_column="0"
             android:text="Extra Notes:"/>
         <EditText
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_row="18"
+            android:layout_row="20"
             android:layout_column="0"
-            android:inputType="text"/>
-
+            android:inputType="textMultiLine"
+            android:lines="8"
+            android:minLines="3"
+            android:scrollbars="vertical" />
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_row="21"
+            android:layout_column="0"
+            android:text="Save"
+            android:id="@+id/save"
+            android:onClick="DoneClick"/>
     </GridLayout>
 </ScrollView>
