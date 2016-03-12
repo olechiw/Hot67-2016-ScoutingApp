@@ -15,6 +15,7 @@ import java.io.OutputStream;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
 import android.bluetooth.BluetoothAdapter;
+import android.content.Intent;
 import android.os.ParcelUuid;
 import java.io.IOException;
 import java.util.Set;
@@ -136,8 +137,7 @@ public class BeginActivity extends AppCompatActivity {
 
         if (num<0)
         {
-            MessageDialog("Invalid Team number", "The team number provided" +
-                    "is either 0 or less than that, which is invalid.");
+            MessageDialog("Bad Number", "Invalid Team Number");
             return;
         }
 
@@ -146,6 +146,22 @@ public class BeginActivity extends AppCompatActivity {
 
     public void SaveTeam(int teamNumber)
     {
+        try{
+            outputStream.write(chevalAuton.getText().toString().getBytes());
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    public String Bool2String(boolean bool)
+    {
+        if (bool)
+        {
+            return "1";
+        }
+        return "0";
     }
 
     public void MessageDialog(String title, String text)
@@ -165,21 +181,32 @@ public class BeginActivity extends AppCompatActivity {
         dlgAlert.create().show();
     }
 
-    OutputStream outputStream;
-    InputStream inStream;
+    private OutputStream outputStream;
+    private InputStream inStream;
+    public final int REQUEST_BLUETOOTH = 1;
+
     private void InitBluetooth() {
 
         try {
+
             BluetoothAdapter blueAdapter = BluetoothAdapter.getDefaultAdapter();
+
             if (blueAdapter != null) {
+
+                Intent enableBlueTooth = new Intent(blueAdapter.ACTION_REQUEST_ENABLE);
+                startActivityForResult(enableBlueTooth, REQUEST_BLUETOOTH);
+
                 if (blueAdapter.isEnabled()) {
                     Set<BluetoothDevice> bondedDevices = blueAdapter.getBondedDevices();
 
                     if (bondedDevices.size() > 0) {
+
                         BluetoothDevice[] devices = (BluetoothDevice[]) bondedDevices.toArray();
                         BluetoothDevice device = devices[0];
                         ParcelUuid[] uuids = device.getUuids();
+
                         BluetoothSocket socket = device.createRfcommSocketToServiceRecord(uuids[0].getUuid());
+
                         socket.connect();
                         outputStream = socket.getOutputStream();
                         inStream = socket.getInputStream();
