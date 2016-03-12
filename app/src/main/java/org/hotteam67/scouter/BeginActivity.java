@@ -10,6 +10,14 @@ import android.widget.EditText;
 import android.widget.Button;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import java.io.InputStream;
+import java.io.OutputStream;
+import android.bluetooth.BluetoothDevice;
+import android.bluetooth.BluetoothSocket;
+import android.bluetooth.BluetoothAdapter;
+import android.os.ParcelUuid;
+import java.io.IOException;
+import java.util.Set;
 import java.util.List;
 import android.widget.RadioButton;
 
@@ -57,6 +65,8 @@ public class BeginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_begin);
 
         InitializeComponents();
+
+        InitBluetooth();
     }
 
     private void InitializeComponents()
@@ -153,5 +163,33 @@ public class BeginActivity extends AppCompatActivity {
                     }
                 });
         dlgAlert.create().show();
+    }
+
+    OutputStream outputStream;
+    InputStream inStream;
+    private void InitBluetooth() {
+
+        try {
+            BluetoothAdapter blueAdapter = BluetoothAdapter.getDefaultAdapter();
+            if (blueAdapter != null) {
+                if (blueAdapter.isEnabled()) {
+                    Set<BluetoothDevice> bondedDevices = blueAdapter.getBondedDevices();
+
+                    if (bondedDevices.size() > 0) {
+                        BluetoothDevice[] devices = (BluetoothDevice[]) bondedDevices.toArray();
+                        BluetoothDevice device = devices[0];
+                        ParcelUuid[] uuids = device.getUuids();
+                        BluetoothSocket socket = device.createRfcommSocketToServiceRecord(uuids[0].getUuid());
+                        socket.connect();
+                        outputStream = socket.getOutputStream();
+                        inStream = socket.getInputStream();
+                    }
+                }
+            }
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
     }
 }
