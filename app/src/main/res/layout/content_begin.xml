@@ -10,9 +10,10 @@
         android:rowCount="20"
         android:columnCount="20"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:showIn="@layout/activity_begin">
+        tools:showIn="@layout/activity_begin"
+        tools:ignore="HardcodedText">
 
         <!--
         This is the prototype for a starting page. From here a user can access additional teams
@@ -61,7 +62,7 @@
 
 
         <!-- Low Bar -->
-        <RadioButton
+        <org.hotteam67.scouter.ToggleBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id = "@+id/lowBar"
@@ -89,7 +90,7 @@
 
 
         <!-- Porticullis -->
-        <RadioButton
+        <org.hotteam67.scouter.ToggleBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id = "@+id/port"
@@ -117,7 +118,7 @@
 
 
         <!-- Cheval de Fris -->
-        <RadioButton
+        <org.hotteam67.scouter.ToggleBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id = "@+id/cheval"
@@ -145,7 +146,7 @@
 
 
         <!-- Sally Port -->
-        <RadioButton
+        <org.hotteam67.scouter.ToggleBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id = "@+id/sallyPort"
@@ -173,7 +174,7 @@
 
 
         <!-- Drawbridge -->
-        <RadioButton
+        <org.hotteam67.scouter.ToggleBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id = "@+id/drawbridge"
@@ -201,7 +202,7 @@
 
 
         <!-- Moat -->
-        <RadioButton
+        <org.hotteam67.scouter.ToggleBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id = "@+id/moat"
@@ -229,7 +230,7 @@
 
 
         <!-- Rock Wall -->
-        <RadioButton
+        <org.hotteam67.scouter.ToggleBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id = "@+id/ramparts"
@@ -257,7 +258,7 @@
 
 
         <!-- Rock Wall -->
-        <RadioButton
+        <org.hotteam67.scouter.ToggleBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id = "@+id/rockWall"
@@ -353,20 +354,34 @@
 
 
         <!-- Shooting Positions -->
-        <RadioButton
+        <org.hotteam67.scouter.ToggleBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_row="13"
             android:layout_column="0"
             android:layout_gravity="center_horizontal"
             android:text="Batter"/>
-        <RadioButton
+        <org.hotteam67.scouter.ToggleBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_row="14"
             android:layout_column="0"
             android:layout_gravity="center_horizontal"
             android:text="Outer Works"/>
+
+        <!-- Final Notes -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="17"
+            android:layout_column="0"
+            android:text="Extra Notes:"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="18"
+            android:layout_column="0"
+            android:inputType="text"/>
 
     </GridLayout>
 </ScrollView>
