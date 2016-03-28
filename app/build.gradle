@@ -8,6 +8,7 @@ android {
         applicationId "org.hotteam67.scouter"
         minSdkVersion 15
         targetSdkVersion 23
+        multiDexEnabled true
         versionCode 1
         versionName "1.0"
     }
@@ -24,10 +25,7 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.2.1'
     compile 'com.android.support:design:23.2.1'
-    compile files('libs/poi-3.14-20160307.jar')
-    compile files('libs/poi-examples-3.14-20160307.jar')
-    compile files('libs/poi-excelant-3.14-20160307.jar')
-    compile files('libs/poi-ooxml-3.14-20160307.jar')
-    compile files('libs/poi-ooxml-schemas-3.14-20160307.jar')
-    compile files('libs/poi-scratchpad-3.14-20160307.jar')
+    compile files('libs/xstream-hibernate-1.4.8.jar')
+    compile files('libs/xstream-1.4.8.jar')
+    compile files('libs/xstream-benchmark-1.4.8.jar')
 }
