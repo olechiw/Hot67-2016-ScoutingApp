@@ -20,6 +20,7 @@ import android.content.Intent;
 import android.os.ParcelUuid;
 import java.io.IOException;
 import java.io.File;
+import java.io.FileWriter;
 import java.util.Set;
 import java.util.List;
 import android.widget.RadioButton;
@@ -241,12 +242,30 @@ public class BeginActivity extends AppCompatActivity {
                 + (shotFromBatter.isChecked() ? shotBatter : didntShootBatter) + endl
                 + BeginNotesTag + endl + extraNotes.getText() + endl + EndTag + EndTag;
 
+        /*
         FileOutputStream out;
         try {
             out = openFileOutput(String.valueOf(inputTeamNumber) + ".team", MODE_PRIVATE);
             out.write(output.getBytes());
             out.close();
         } catch (Exception e) {
+            e.printStackTrace();
+        }
+        */
+        File teamSave = new File(android.os.Environment.getDataDirectory(), "Teams");
+        if (!teamSave.exists())
+        {
+            teamSave.mkdirs();
+        }
+
+        File saveFile = new File(teamSave, String.valueOf(inputTeamNumber) + ".team");
+        try{
+            FileWriter writer = new FileWriter(saveFile);
+            writer.flush();
+            writer.close();
+        }
+        catch (Exception e)
+        {
             e.printStackTrace();
         }
     }
