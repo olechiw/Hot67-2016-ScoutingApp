@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import java.io.InputStream;
+import java.io.OutputStreamWriter;
 import java.io.OutputStream;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
@@ -25,7 +26,7 @@ import java.util.Set;
 import java.util.List;
 import android.widget.RadioButton;
 
-public class BeginActivity extends AppCompatActivity {
+public class HOT67FRCScouter extends AppCompatActivity {
 
     ToggleBox sallyPort;
     ToggleBox drawbridge;
@@ -187,6 +188,11 @@ public class BeginActivity extends AppCompatActivity {
         rampartsAuton = (EditText) findViewById(R.id.rampartsAuton);
         rampartsTeleop = (EditText) findViewById(R.id.rampartsTeleop);
 
+        teleopHighGoals = (EditText) findViewById(R.id.telopHigh);
+        teleopLowGoals = (EditText) findViewById(R.id.telopLow);
+        autonHighGoals = (EditText) findViewById(R.id.autonHigh);
+        autonLowGoals = (EditText) findViewById(R.id.autonLow);
+
         teamNumber = (EditText) findViewById(R.id.teamNumberControl);
 
 
@@ -242,32 +248,19 @@ public class BeginActivity extends AppCompatActivity {
                 + (shotFromBatter.isChecked() ? shotBatter : didntShootBatter) + endl
                 + BeginNotesTag + endl + extraNotes.getText() + endl + EndTag + EndTag;
 
-        /*
+
         FileOutputStream out;
         try {
-            out = openFileOutput(String.valueOf(inputTeamNumber) + ".team", MODE_PRIVATE);
+            File fDir = android.os.Environment.getExternalStoragePublicDirectory(android.os.Environment.DIRECTORY_DOWNLOADS);
+            File f = new File(fDir.getAbsolutePath() + "/" + String.valueOf(inputTeamNumber) + ".team");
+            //MessageDialog("File Path:", f.getAbsolutePath());
+            out = new FileOutputStream(f);
             out.write(output.getBytes());
             out.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        */
-        File teamSave = new File(android.os.Environment.getDataDirectory(), "Teams");
-        if (!teamSave.exists())
-        {
-            teamSave.mkdirs();
-        }
 
-        File saveFile = new File(teamSave, String.valueOf(inputTeamNumber) + ".team");
-        try{
-            FileWriter writer = new FileWriter(saveFile);
-            writer.flush();
-            writer.close();
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-        }
     }
 
     // When the user wants to save
@@ -275,9 +268,10 @@ public class BeginActivity extends AppCompatActivity {
     {
         int obstaclesChecked = 0;
         for (ToggleBox t : obstacles) {
-            if (t.isChecked())
-            {
-                obstaclesChecked++;
+            if (t!=null) {
+                if (t.isChecked()) {
+                    obstaclesChecked++;
+                }
             }
         }
 
