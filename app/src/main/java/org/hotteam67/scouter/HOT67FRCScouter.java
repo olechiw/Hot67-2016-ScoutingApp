@@ -21,6 +21,7 @@ import android.content.Intent;
 import android.os.ParcelUuid;
 import java.io.IOException;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.util.Set;
 import java.util.List;
@@ -72,6 +73,8 @@ public class HOT67FRCScouter extends AppCompatActivity {
     EditText rampartsAuton;
     EditText rampartsTeleop;
 
+    EditText misses;
+
     EditText teamNumber;
     EditText matchNumber;
     EditText extraNotes;
@@ -102,6 +105,7 @@ public class HOT67FRCScouter extends AppCompatActivity {
     String AutonLowGoalsTag = "AUTONLOW:";
     String TeleopHighGoalsTag = "TELEOPHIGH:";
     String TeleopLowGoalsTag = "TELEOPLOW:";
+    String BeginMissesTag = "MISSES:";
 
     enum Obstacles
     {
@@ -164,7 +168,8 @@ public class HOT67FRCScouter extends AppCompatActivity {
                 moat,
                 cheval,
                 drawbridge,
-                sallyPort
+                sallyPort,
+                roughTerrain
         };
 
         obstacles = obstacle;
@@ -192,6 +197,10 @@ public class HOT67FRCScouter extends AppCompatActivity {
         teleopLowGoals = (EditText) findViewById(R.id.telopLow);
         autonHighGoals = (EditText) findViewById(R.id.autonHigh);
         autonLowGoals = (EditText) findViewById(R.id.autonLow);
+        misses = (EditText) findViewById(R.id.missesText);
+
+        challenged = (ToggleBox) findViewById(R.id.challenged);
+        scaled = (ToggleBox) findViewById(R.id.scaled);
 
         teamNumber = (EditText) findViewById(R.id.teamNumberControl);
 
@@ -200,11 +209,80 @@ public class HOT67FRCScouter extends AppCompatActivity {
         doneButton = (Button) findViewById(R.id.save);
     }
 
+    // Erases all data and reverts to default values
+    public void Reset()
+    {
+        lowBarAuton.setText("0");
+        lowBarTeleop.setText("0");
+        porticullisAuton.setText("0");
+        porticullisTeleop.setText("0");
+        drawbridgeAuton.setText("0");
+        drawbridgeTeleop.setText("0");
+        sallyPortAuton.setText("0");
+        sallyPortTeleop.setText("0");
+        chevalAuton.setText("0");
+        chevalTeleop.setText("0");
+        rampartsAuton.setText("0");
+        rampartsTeleop.setText("0");
+        moatAuton.setText("0");
+        moatTeleop.setText("0");
+        rockWallAuton.setText("0");
+        rockWallTeleop.setText("0");
+
+        rockWall.setChecked(false);
+        rockWall.SetListener();
+        porticullis.setChecked(false);
+        porticullis.SetListener();
+        cheval.setChecked(false);
+        cheval.SetListener();
+        moat.setChecked(false);
+        moat.SetListener();
+        sallyPort.setChecked(false);
+        sallyPort.SetListener();
+        drawbridge.setChecked(false);
+        drawbridge.SetListener();
+        ramparts.setChecked(false);
+        ramparts.SetListener();
+        roughTerrain.setChecked(false);
+        roughTerrain.SetListener();
+
+        extraNotes.setText("");
+        teamNumber.setText("0");
+        matchNumber.setText("0");
+
+        autonHighGoals.setText("0");
+        teleopHighGoals.setText("0");
+        autonLowGoals.setText("0");
+        teleopLowGoals.setText("0");
+        misses.setText(0);
+
+        shotFromBatter.setChecked(false);
+        shotFromBatter.SetListener();
+        shotFromOuterWorks.setChecked(false);
+        shotFromOuterWorks.SetListener();
+        scaled.setChecked(false);
+        scaled.SetListener();
+        challenged.setChecked(false);
+        challenged.SetListener();
+        autonReached.setChecked(false);
+        autonReached.SetListener();
+        isSpy.setChecked(false);
+        isSpy.SetListener();
+        autonCrossed.setChecked(false);
+        autonCrossed.SetListener();
+    }
+
     // Saves the team to a file
     public void SaveTeam(int inputTeamNumber)
     {
-        String endl = "\n";
+        File fDir = android.os.Environment.getExternalStoragePublicDirectory(android.os.Environment.DIRECTORY_DOWNLOADS);
+
+        // Column Separator
+        String cs = ",";
+
         String output = "";
+        String endl = "\n";
+        /*
         output += BeginTag + endl
                 + TeamNameTag + String.valueOf(inputTeamNumber) + endl
                 + MatchNumberTag + matchNumber.getText() + endl
@@ -246,21 +324,25 @@ public class HOT67FRCScouter extends AppCompatActivity {
                 + ShootLocationsTag
                 + (shotFromOuterWorks.isChecked() ? shotWorks : didntShootWorks)
                 + (shotFromBatter.isChecked() ? shotBatter : didntShootBatter) + endl
+                + BeginMissesTag + misses.getText() + endl
+                + ChallengedTag + B2S(challenged.isChecked()) + endl
+                + ScaledTag + B2S(scaled.isChecked()) + endl
                 + BeginNotesTag + endl + extraNotes.getText() + endl + EndTag + EndTag;
+        */
 
+        output += teamNumber.getText() + cs + matchNumber.getText();
 
+        Reset();
         FileOutputStream out;
         try {
-            File fDir = android.os.Environment.getExternalStoragePublicDirectory(android.os.Environment.DIRECTORY_DOWNLOADS);
-            File f = new File(fDir.getAbsolutePath() + "/" + String.valueOf(inputTeamNumber) + ".team");
-            //MessageDialog("File Path:", f.getAbsolutePath());
-            out = new FileOutputStream(f);
+            File f = new File(fDir.getAbsolutePath() + "/" +  String.valueOf(inputTeamNumber) + ".team");
+            MessageDialog("File Path:", f.getAbsolutePath());
+            out = new FileOutputStream(f, true);
             out.write(output.getBytes());
             out.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
     // When the user wants to save
@@ -276,11 +358,9 @@ public class HOT67FRCScouter extends AppCompatActivity {
         }
 
         if (obstaclesChecked != 4) {
-            MessageDialog("Not enough obstacles", "You have not provided at " +
-                    "least four present obstacles");
+            MessageDialog("Bad Number", "You have not provided exactly four obstacles");
             return;
         }
-
 
         int num = Integer.parseInt(teamNumber.getText().toString());
 
@@ -290,6 +370,10 @@ public class HOT67FRCScouter extends AppCompatActivity {
             return;
         }
 
+        /*if (!MessageDialog("Confirm", "Would you like to save, and reset progress?"))
+        {
+            return;
+        }*/
         SaveTeam(num);
     }
 
@@ -315,10 +399,13 @@ public class HOT67FRCScouter extends AppCompatActivity {
     // Converts a bool to a string equivalent
     public String B2S(boolean bool)
     {
-        return String.valueOf(bool);
+        if (bool)
+            return "1";
+        return "0";
     }
 
-    public void MessageDialog(String title, String text)
+    public boolean positiveDialog = false;
+    public boolean MessageDialog(String title, String text)
     {
 
         AlertDialog.Builder dlgAlert  = new AlertDialog.Builder(this);
@@ -326,12 +413,15 @@ public class HOT67FRCScouter extends AppCompatActivity {
         dlgAlert.setTitle(title);
         dlgAlert.setPositiveButton("OK", null);
         dlgAlert.setCancelable(true);
+        positiveDialog = false;
         dlgAlert.setPositiveButton("Ok",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
+                        HOT67FRCScouter.this.positiveDialog = true;
                         dialog.dismiss();
                     }
                 });
         dlgAlert.create().show();
+        return positiveDialog;
     }
 }

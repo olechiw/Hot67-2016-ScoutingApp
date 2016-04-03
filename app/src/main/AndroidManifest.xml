@@ -15,7 +15,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".HOT67FRCScouter"
-            android:label="@string/title_activity_begin"
+            android:label="HOT67FRCScouter"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
